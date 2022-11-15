@@ -1,12 +1,12 @@
 export class Name {
 	[k: string]: any;
-	id: number = 0;
-	nameFragment: string = '';
+	title: string = '';
+	name: string = '';
+	url: string = '';
+	category_type: string = '';
+	status: string = '';
+	language_id: string = '';
+	language_script: string = '';
 	gender: string = '';
-	rank: boolean = false;
-	domain: string = '';
-	personalName: boolean = false;
-	nationality: string = '';
-	rankEnglish: string = '';
-	rankHungarian: string = '';
+	parent_cmtitle: string = '';
 }

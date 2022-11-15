@@ -1,5 +1,3 @@
-https://dm.mygls.hu/Account/Login?parcelNumber=3164160427&pin=H4V10
-
 # Fictivo
 
 A random name generator
