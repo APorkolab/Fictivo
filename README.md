@@ -1,11 +1,13 @@
+https://dm.mygls.hu/Account/Login?parcelNumber=3164160427&pin=H4V10
+
 # Fictivo
+
 A random name generator
 
-
 1. A random name generator - fictivo
-Skills: Front-end
-Focus: Interface, form, randomness management
-Difficulty: 1/5
+   Skills: Front-end
+   Focus: Interface, form, randomness management
+   Difficulty: 1/5
 
 The advantage of a project like this is that the interface can be straightforward and works for many topics.
 

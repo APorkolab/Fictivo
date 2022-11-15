@@ -1,0 +1,509 @@
+	id: number = 0
+	nameFragment: string = '';
+	gender: string = '';
+	rank: boolean = false;
+	domain: string = '';
+	personalName: boolean = false;
+	nationality: string = '';
+	rankEnglish: string = '';
+	rankHungarian: string = '';
+
+
+Katona -->military ratings, rendfokozatok
+[
+	{
+		"id": 0;
+		"nameFragment": "private",
+		"gender": "both",
+		"rank": true,
+		"domain": "military",
+		"personalName": false,
+		"nationality": 'international',
+		"rankEnglish": 'private',
+		"rankHungarian": 'honvéd',
+		"occupation": false,
+		"occupationEnglish": '',
+		"occupationHungarian":'';
+	},
+	{
+		"id": 0;
+		"nameFragment": "private",
+		"gender": "both",
+		"rank": true,
+		"domain": "military",
+		"personalName": false,
+		"nationality": 'international',
+		"rankEnglish": 'private',
+		"rankHungarian": 'honvéd',
+		"occupation": false,
+		"occupationEnglish": '',
+		"occupationHungarian":'';
+	},
+	{
+		"id": 0;
+		"nameFragment": "private",
+		"gender": "both",
+		"rank": true,
+		"domain": "military",
+		"personalName": false,
+		"nationality": 'international',
+		"rankEnglish": 'private',
+		"rankHungarian": 'honvéd',
+		"occupation": false,
+		"occupationEnglish": '',
+		"occupationHungarian":'';
+	},
+	{
+		"id": 0;
+		"nameFragment": "private",
+		"gender": "both",
+		"rank": true,
+		"domain": "military",
+		"personalName": false,
+		"nationality": 'international',
+		"rankEnglish": 'private',
+		"rankHungarian": 'honvéd',
+		"occupation": false,
+		"occupationEnglish": '',
+		"occupationHungarian":'';
+	},
+	{
+		"id": 0;
+		"nameFragment": "private",
+		"gender": "both",
+		"rank": true,
+		"domain": "military",
+		"personalName": false,
+		"nationality": 'international',
+		"rankEnglish": 'private',
+		"rankHungarian": 'honvéd',
+		"occupation": false,
+		"occupationEnglish": '',
+		"occupationHungarian":'';
+	},
+	{
+		"id": 0;
+		"nameFragment": "private",
+		"gender": "both",
+		"rank": true,
+		"domain": "military",
+		"personalName": false,
+		"nationality": 'international',
+		"rankEnglish": 'private',
+		"rankHungarian": 'honvéd',
+		"occupation": false,
+		"occupationEnglish": '',
+		"occupationHungarian":'';
+	},
+	{
+		"id": 0;
+		"nameFragment": "private",
+		"gender": "both",
+		"rank": true,
+		"domain": "military",
+		"personalName": false,
+		"nationality": 'international',
+		"rankEnglish": 'private',
+		"rankHungarian": 'honvéd',
+		"occupation": false,
+		"occupationEnglish": '',
+		"occupationHungarian":'';
+	},
+	{
+		"id": 0;
+		"nameFragment": "private",
+		"gender": "both",
+		"rank": true,
+		"domain": "military",
+		"personalName": false,
+		"nationality": 'international',
+		"rankEnglish": 'private',
+		"rankHungarian": 'honvéd',
+		"occupation": false,
+		"occupationEnglish": '',
+		"occupationHungarian":'';
+	},
+
+]
+
+
+
+
+
+
+
+
+
+private second class Őrvezető
+private first class 
+army specialist Szakaszvezető
+corporal Tizedes
+sergeant
+staff sergeant
+sergeant first class
+master sergeant
+first sergeant
+sergeant major
+command sergeant major 
+sergeant major of the Army.
+
+
+Rendfokozat nélkül
+
+
+
+Tisztesek
+
+
+
+
+
+Tiszthelyettesek
+Őrmester
+Törzsőrmester
+Főtörzsőrmester
+
+Zászlósok
+
+Zászlós
+Törzszászlós
+Főtörzszászlós
+
+Tisztek
+Hadnagy
+Főhadnagy
+Százados
+
+Főtisztek
+Őrnagy
+Alezredes
+Ezredes
+
+Tábornokok
+Vezérőrnagy
+Altábornagy
+Vezérezredes
+Hadseregtábornok
+
+Tudós
+tanársegéd
+adjunktus
+docens
+egyetemi/főiskolai tanár
+professzor
+dékán
+rektor
+
+
+
+Náci tiszt - SS
+
+SS-Mann – Közlegény
+Sturmmann – Közlegény (Őrvezető)
+Rottenführer – Őrvezető
+Unterscharführer – Tizedes
+Scharführer – Szakaszvezető
+Oberscharführer – Őrmester
+Hauptscharführer – Törzsőrmester
+Sturmscharführer – Főtörzsőrmester
+Untersturmführer – Hadnagy
+Obersturmführer – Főhadnagy
+Hauptsturmführer – Százados
+Sturmbannführer – Őrnagy
+Obersturmbannführer – Alezredes
+Standartenführer – Ezredes
+Oberführer – Köztes rang az ezredes és dandártábornok között, magyar megfelelője nincs
+Brigadeführer – Dandártábornok
+Gruppenführer – Vezérőrnagy
+Obergruppenführer – Vezérezredes
+Oberstgruppenführer – Tábornagy
+Reichsführer-SS – Az SS Birodalmi vezetője
+
+buszvezető
+bérgyilkos
+bűvész
+cipész
+cselédlány
+csempéző
+drámaíró
+egyetemi tanár
+eladó
+erdész
+erőművész
+esztergályos
+fejlesztő
+felfedező
+feltaláló
+fordító
+földbirtokos
+földrajztudós
+főpincér
+főpolgármester
+főszereplő
+grófnő
+gyógynövényárus
+gépkocsivezető
+gépészmérnök
+hegedűs
+hercegnő
+házelnök
+házvezető
+igazgatónő
+igazságügyminiszter
+informatikus
+inkvizítor
+iskolaigazgató
+jogtudós
+juhász
+jósnő
+kapus
+karmester
+kaszkadőr
+kombájnvezető
+kommandós
+kommentátor
+kántor
+kárpitos
+kéjnő
+kézműves
+kígyóbűvölő
+költőnő
+könyvkötő
+könyvtáros
+közgazdász
+köztisztviselő
+kőfejtő
+kőműves
+lakatos
+levéltáros
+levéltárosnő
+lámpagyújtogató
+légtornász
+miniszterelnök
+miniszter
+mozdonyvezető
+munkatárs
+műbútorasztalos
+műfordító
+műsorvezető
+nadrágszabó
+nagykereskedő
+narancsárus
+narrátor
+novícius
+nyomdász
+nyílkészítő
+nádor
+nádorispán
+népművész
+néprajzkutató
+növénynemesítő
+osztályfőnök
+papnő
+perjel
+pohárnok
+polgármester
+popénekes
+pornószínésznő
+portás
+prefektus
+programozó
+prédikátor
+prépost
+prófétanő
+pápa
+pártelnök
+pénztárosnő
+pénzügyminiszter
+rabbi
+regényíró
+rendőrnő
+rockzenész
+régens
+részlegvezető
+specialista
+sportoló
+szakács
+szerkesztő
+szervező
+szerzetes
+szobafestő
+szobrász
+szobrászművész
+szolgáló
+szolgálólány
+színésznő
+szószóló
+szóvivő
+szövegszerkesztő
+szűrszabó
+tanár úr
+tanárnő
+tanítónő
+tehénpásztor
+tejesember
+természettudós
+térképrajzoló
+uralkodó
+utaskísérő
+utaskísérőnő
+varázsló
+vasutas
+vendéglős
+virágkertész
+virágkötő
+váltóőr
+vámos
+vámszedő
+vízvezetékszerelő
+zenész
+ékszerész
+író
+írónő
+órakészítő
+üzletasszony
+őrgróf
+űrhajós
+
+
+
+bus driver
+hitman
+magician
+shoemaker
+maid
+tiler
+playwright
+university professor
+salesman
+forester
+power engineer
+turner
+developer
+explorer
+inventor
+translator
+landowner
+geographer
+head waiter
+Lord Mayor
+protagonist
+countess
+herbalist
+car driver
+mechanical engineer
+violinist
+princess
+Speaker of the House
+housekeeper
+headmistress
+Minister of Justice
+IT Officer
+inquisitor
+school principal
+lawyer
+shepherd
+fortune teller
+gatekeeper
+conductor
+stuntman
+harvester driver
+commando
+commentator
+cantor
+upholsterer
+lewd
+craftsman
+snake charmer
+poetess
+bookbinder
+librarian
+economist
+civil servant
+quarryman
+mason
+locksmith
+archivist
+lamplighter
+aerial gymnast
+prime minister
+minister
+train driver
+staff member
+cabinetmaker
+translator
+presenter
+trouser cutter
+wholesaler
+orange seller
+narrator
+novice
+printer
+arrow maker
+bishop
+bailiff
+folk artist
+ethnographer
+plant breeder
+class teacher
+priestess
+slash
+cupbearer
+mayor
+pop singer
+porn actress
+doorman
+prefect
+programmer
+preacher
+provost
+prophetess
+Pope
+party president
+treasurer
+finance minister
+rabbi
+novelist
+policewoman
+rock musician
+regent
+head of department
+specialist
+athlete
+chef
+editor
+organiser
+monk
+carpenter
+sculptor
+serving
+maid
+actress
+advocate
+spokesperson
+copy editor
+filter editor
+teacher
+cowherd
+milkman
+naturalist
+cartographer
+ruler
+steward
+stewardess
+magician
+railwayman
+innkeeper
+flower gardener
+florist
+signalman
+customs officer
+customs collector
+plumber
+musician
+jeweller
+writer
+watchmaker
+businesswoman
+major
+astronaut
