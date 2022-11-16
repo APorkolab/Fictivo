@@ -12,16 +12,31 @@
 							</div>
 							<div class="form-group tm-form-element tm-form-element-50">
 								<i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-								<input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Check In">
+								<input [(ngModel)]="numberOfNames" name="numberOfNames" type="number" class="form-control"
+									id="numberOfNames" min="1" max="100"
+									placeholder="How many names should be generated? (max. 100 names)">
 							</div>
 							<div class="form-group tm-form-element tm-form-element-50">
-								<i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-								<input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Check Out">
+								<select [(ngModel)]="gender" name="gender" class="form-control tm-select" id="adult">
+									<option value="">Language of the name</option>
+									<option *ngFor="let item of this.languageCodes">{{item}}</option>
+									<!-- <option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option> -->
+								</select>
+								<i class="fa fa-2x fa-user tm-form-element-icon"></i>
 							</div>
 						</div>
 						<div class="form-row tm-search-form-row">
 							<div class="form-group tm-form-element tm-form-element-2">
-								<select [(ngModel)]="gender" name="gender" class="form-control tm-select" id="adult">
+								<select [(ngModel)]="selectedLanguage" name="selectedLanguage" class="form-control tm-select"
+									id="selectedLanguage">
 									<option value="">Language of the name</option>
 									<option *ngFor="let item of this.languageCodes">{{item}}</option>
 									<!-- <option value="2">2</option>
@@ -39,30 +54,27 @@
 							<div class="form-group tm-form-element tm-form-element-2">
 								<select name="children" class="form-control tm-select" id="children">
 									<option value="">Gender</option>
-									<option value="Gender.Male">Male</option>
-									<option value="Gender.Female">Female</option>
+									<option value="Gender.male">Male</option>
+									<option value="Gender.female">Female</option>
 									<!-- <option value="Gender.Unisex">Unisex</option> -->
 								</select>
 								<i class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
 							</div>
 							<div class="form-group tm-form-element tm-form-element-2">
-								<select name="room" class="form-control tm-select" id="room">
+								<select [(ngModel)]="rank" name="rank" class="form-control tm-select" id="room">
 									<option value="">Profession of the character</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
+									<option value="education">Education</option>
+									<option value="education">Hungarian police officer</option>
+									<option value="military">Military</option>
+									<option value="SS-military">SS-military</option>
+									<option value="civilian">Civilian</option>
 								</select>
 								<i class="fa fa-2x fa-bed tm-form-element-icon"></i>
 							</div>
 							<div class="form-group tm-form-element tm-form-element-2">
-								<button type="submit" class="btn btn-primary tm-btn-search">Check Availability</button>
+								<button *ngIf="selectedLanguage && gender && numberOfNames" type="submit"
+									class="btn btn-primary tm-btn-search"
+									(click)="generateName(selectedLanguage, gender, rank, numberOfNames)">I WANT MY NAMES!</button>
 							</div>
 						</div>
 						<div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
@@ -80,10 +92,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col text-center">
-				<h2 class="tm-section-title">We are here to help you?</h2>
-				<p class="tm-color-white tm-section-subtitle">Subscribe to get our newsletters</p>
-				<a href="#" class="tm-color-white tm-btn-white-bordered">Subscribe Newletters</a>
+				<h2 class="tm-section-title">The generated names are...</h2>
+				<!-- <p class="tm-color-white tm-section-subtitle">Subscribe to get our newsletters</p>
+				<a href="#" class="tm-color-white tm-btn-white-bordered">Subscribe Newletters</a> -->
 			</div>
 		</div>
 	</div>
 </div>
+tarara
+<div *ngFor="let option of resultNames">{{option.rank}} {{option.randomGivenNameElement}}
+	{{option.randomsurnameElement}}</div>
+{{resultNames}}

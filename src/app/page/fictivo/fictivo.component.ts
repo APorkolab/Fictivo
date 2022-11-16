@@ -1,8 +1,11 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Name } from 'src/app/model/name';
 import { HttpClient } from "@angular/common/http";
-import { getJSON } from 'jquery';
-
+import { NotificationService } from 'src/app/service/notification.service';
+import { Utf8, Utf16, HexString } from 'utf-helpers'
+const utf8 = require('utf8');
+import { fromCode, getCode } from '@skyra/char';
 
 @Component({
   selector: 'app-fictivo',
@@ -12,9 +15,12 @@ import { getJSON } from 'jquery';
 export class FictivoComponent implements OnInit {
   selectedLanguage = '';
   gender = '';
+  rank = '';
+  numberOfNames = 0;
   resultNames: any[] = [];
   givenNamesSource: any[] = [];
   surnamesSource: any[] = [];
+  ranksSource: any[] = [];
   languageCodes: string[] = [
     "abk",
     "afr",
@@ -150,61 +156,110 @@ export class FictivoComponent implements OnInit {
   ]
   tarara!: Object;
   tiriri!: Object;
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, public notification: NotificationService) {
 
+    const utf8 = require('utf8');
   }
 
   ngOnInit(): void {
-    console.log(this.generateName('hun', 'female'));
+    console.log(this.generateName('deu', 'male', 'civilian'));
+    // console.log(this.generateRank('unisex', 'military'));
 
   }
 
 
-  async generateName(language: string, gender: string) {
-    let asd: any[] = [];
-    let dsa: any[] = [];
+
+
+  async generateName(language: string, gender: string, rank?: string, numberOfNames?: number) {
+    let allGivenNameInThatLanguage: any[] = [];
+    let allsurnameInThatLanguage: any[] = [];
     let randomGivenNameElement;
     let randomsurnameElement;
+    let allRank: any[] = [];
+    let randomRank;
     this.httpClient.get(`../../../assets/names/${language}_givenNames.json`).subscribe(data => {
-      const qwer = JSON.stringify(data);
-      const qwur = JSON.parse(qwer);
-      // console.log(qwur);
-      for (const prop in qwur) {
-        asd.push(qwur[prop])
+      const JSONGivennameData = JSON.stringify(data);
+      const properGivennameJSON = JSON.parse(JSONGivennameData);
+      // console.log(properGivennameJSON);
+      for (const prop in data) {
+        allGivenNameInThatLanguage.push(properGivennameJSON[prop])
       }
-      // console.log(asd);
-      // let key = this.givenNamesSource.slice(0, 0).map(item => item.title);
-      this.givenNamesSource = asd.filter(item => item.gender === `Gender.${gender}`).map(item => item.name);
-      console.log(this.givenNamesSource);
-      // this.givenNamesSource = asd.filter(item => item) .map(item => item.name);
-
+      if (allGivenNameInThatLanguage.filter(item => item.gender === `Gender.${gender}`).length >= 1) {
+        this.givenNamesSource = allGivenNameInThatLanguage.filter(item => item.gender === `Gender.${gender}`).map(item => item.name);
+      } else {
+        this.notification.showError('The database does not contain any given names in this language. For generation, please choose another language!', 'Fictivo v.1.0.0');
+      }
+      // this.surnamesSource = allsurnameInThatLanguage.map(item => item.name);
       // console.log(this.givenNamesSource);
-      // for (let i = 0; i < 100; i++) {
-      //   this.resultNames.push(randomGivenNameElement)
-      // }
     })
-    // console.log('givenNames' + Array(this.givenNamesSource));
+
+    this.httpClient.get(`../../../assets/names/ranks.json`).subscribe(data => {
+      const JSONrank = (JSON.stringify(data));
+      const rankJSON = JSON.parse(JSONrank);
+      for (const prop in rankJSON) {
+        allRank.push(rankJSON[prop])
+      }
+      // this.ranksSource = allRank
+      //   .filter(item => item.gender === gender || 'Gender.unisex')
+      //   .filter(item => item.domain === rank)
+      //   .map(item => item.nameFragment);
+
+      this.ranksSource = allRank.filter(item => item.domain === rank).map(item => item.nameFragment); //shortFormENG for abbreviated form and nameFragment for full rank
+    })
 
     this.httpClient.get(`../../../assets/names/${language}_surnames.json`).subscribe(data => {
-      const ter = JSON.stringify(data);
-      const tui = JSON.parse(ter);
-      // console.log(tui);
-      for (const prop in tui) {
-        dsa.push(tui[prop])
+      const JSONSurnameData = (JSON.stringify(data));
+      const propersurnameJSON = JSON.parse(JSONSurnameData);
+      for (const prop in propersurnameJSON) {
+        allsurnameInThatLanguage.push(propersurnameJSON[prop])
       }
-      // console.log(dsa);
-      // let key = this.givenNamesSource.slice(0, 0).map(item => item.title);
-      this.surnamesSource = dsa.map(item => item.name);
+      this.surnamesSource = allsurnameInThatLanguage.filter(item => item.gender === `Gender.${gender}` || 'Gender.unisex').map(item => item.name);
+      if (allsurnameInThatLanguage.filter(item => item.gender === `Gender.${gender}` || 'Gender.unisex').length >= 1) {
+      } else {
+        this.notification.showError('The database does not contain any surnames in this language. For generation, please choose another language!', 'Fictivo v.1.0.0');
+      }
 
-      for (let i = 0; i < 100; i++) {
+      // this.surnamesSource = allsurnameInThatLanguage.map(item => item.name);
+
+      for (let i = 0; i < 10; i++) {
+        if (rank != '') {
+          const rank = this.generateRank(this.gender, this.rank);
+        }
+        randomRank = this.ranksSource[Math.floor(Math.random() * this.ranksSource.length)];
         randomGivenNameElement = this.givenNamesSource[Math.floor(Math.random() * this.givenNamesSource.length)];
         randomsurnameElement = this.surnamesSource[Math.floor(Math.random() * this.surnamesSource.length)];
-        this.resultNames.push({ randomGivenNameElement, randomsurnameElement });
+        this.resultNames.push({ rank: randomRank, randomGivenNameElement: randomGivenNameElement, randomsurnameElement: randomsurnameElement })
       }
       console.log(this.resultNames);
     })
-
-
-
   }
+
+  generateRank(gender: string, string: string) {
+    let allRank: any[] = [];
+    let randomRank
+    this.httpClient.get(`../../../assets/names/ranks.json`).subscribe(data => {
+      const JSONrank = (JSON.stringify(data));
+      const rankJSON = JSON.parse(JSONrank);
+      for (const prop in rankJSON) {
+        allRank.push(rankJSON[prop])
+      }
+      this.ranksSource = allRank
+        .filter(item => item.gender === gender || 'Gender.unisex')
+        .filter(item => item.domain === string)
+        .map(item => item.nameFragment);
+
+
+      this.ranksSource = allRank.filter(item => item.domain === string).map(item => item.name);
+      randomRank = this.ranksSource[Math.floor(Math.random() * this.ranksSource.length)];
+      this.resultNames.push({ rank: this.rank })
+
+      if (allRank.filter(item => item.gender === `Gender.${gender}` || 'Gender.unisex').length >= 1) {
+      } else {
+        this.notification.showError('The database does not contain any ranks in this language. For generation, please choose another language!', 'Fictivo v.1.0.0');
+      }
+
+    }
+    )
+  }
+
 }

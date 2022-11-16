@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "@popperjs/core": "^2.11.6",
+    "@skyra/char": "^1.0.2",
     "angular-feather": "^6.3.0",
     "bootstrap": "^5.2.1",
     "font-awesome": "^4.7.0",
@@ -29,6 +30,9 @@
     "rxjs": "~7.5.0",
     "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
+    "utf-8": "^2.0.0",
+    "utf-helpers": "^0.0.3",
+    "utf8": "^3.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
