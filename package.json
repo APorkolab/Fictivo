@@ -30,9 +30,6 @@
     "rxjs": "~7.5.0",
     "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
-    "utf-8": "^2.0.0",
-    "utf-helpers": "^0.0.3",
-    "utf8": "^3.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
