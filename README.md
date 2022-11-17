@@ -86,8 +86,8 @@ Technologies used: Angular 14 and Bootstrap 5, other NPM libraries (see _package
 
     `git clone https://github.com/APorkolab/Fictivo.git`
 
-5.  Install the application dependencies:
-        -   In the terminal, go to the /backend folder (`cd backend`) and run  `npm i`.
+5.  Install the application dependencies: - In the terminal, go to the /backend folder (`cd backend`) and run `npm i`.
+
     - frontend
 
       - On the terminal, run `npm i`.\*
@@ -110,7 +110,7 @@ OR
 
 ## **6. Start the application**
 
-- Both the backend and the frontend can be started with the `npm start` command.
+- The application can be started with the `npm start` command.
 
 ## **7. A special thanks to...**
 
@@ -217,8 +217,7 @@ Használt technológiák: Angular 14 és Bootstrap 5, egyéb NPM könyvtárak (a
 
     ` git clone https://github.com/APorkolab/Fictivo.git`
 
-5.  Telepítse az alkalmazás függőségeit:
-        - A terminálon futtasd az `npm i` parancsot.
+5.  Telepítse az alkalmazás függőségeit: - A terminálon futtasd az `npm i` parancsot.
 
 6.1. Kézi telepítéshez:
 

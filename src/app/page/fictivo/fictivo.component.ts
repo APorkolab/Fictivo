@@ -12,9 +12,9 @@ export class FictivoComponent implements OnInit {
   selectedLanguage = '';
   gender = '';
   rank = '';
-  newGenerated = false;
-  numberOfNames = 0;
-  numberOfnameElement = 0;
+  numberOfNames!: number;
+  numberOfElement = '';
+  elements = 0;
   resultNames: any[] = [];
   givenNamesSource: any[] = [];
   surnamesSource: any[] = [];
@@ -53,10 +53,14 @@ export class FictivoComponent implements OnInit {
 
   }
 
+  OnChange(string: string) {
+    this.elements = Number(string);
+  }
 
 
 
-  async generateName(language: string, gender: string, rank: string, numberOfNames: number) {
+
+  async generateName(language: string, gender: string, rank: string, numberOfNames: number, numberOfnameElement: number) {
     let allGivenNameInThatLanguage: any[] = [];
     let allsurnameInThatLanguage: any[] = [];
     let randomGivenNameElement;
@@ -65,6 +69,7 @@ export class FictivoComponent implements OnInit {
     let randomRank;
 
     this.resultNames.length = 0;
+    console.log(numberOfnameElement);
 
     this.httpClient.get(`../../../assets/names/${language}/${gender}.names`, { responseType: 'text' as 'json' }).subscribe(data => {
       const JSONGivennameData = JSON.stringify(data);
@@ -121,6 +126,9 @@ export class FictivoComponent implements OnInit {
         case 'HUN-civilian':
           this.ranksSource = allRank.filter(item => item.domain === 'civilian').map(item => item.inHungarian);
           break;
+        case 'artist':
+          this.ranksSource = [];
+          break;
 
         default:
           this.ranksSource = [];
@@ -134,14 +142,29 @@ export class FictivoComponent implements OnInit {
 
     this.httpClient.get(`../../../assets/names/${language}/sur.names`, { responseType: 'text' as 'json' }).subscribe(data => {
       const JSONSurnameData = JSON.stringify(data);
-
       this.surnamesSource = JSONSurnameData.split('\\n').slice(2);
 
       for (let i = 0; i < numberOfNames; i++) {
-        randomRank = this.ranksSource[Math.floor(Math.random() * this.ranksSource.length)];
-        randomGivenNameElement = this.givenNamesSource[Math.floor(Math.random() * this.givenNamesSource.length)];
-        randomsurnameElement = this.surnamesSource[Math.floor(Math.random() * this.surnamesSource.length)];
-        this.resultNames.push({ rank: randomRank, randomGivenNameElement: randomGivenNameElement, randomsurnameElement: randomsurnameElement })
+        if (numberOfnameElement > 1) {
+          randomRank = this.ranksSource[Math.floor(Math.random() * this.ranksSource.length)];
+          randomGivenNameElement = this.givenNamesSource[Math.floor(Math.random() * this.givenNamesSource.length)];
+          randomsurnameElement = this.surnamesSource[Math.floor(Math.random() * this.surnamesSource.length)];
+          this.resultNames.push({ rank: randomRank, randomGivenNameElement, randomsurnameElement })
+        } else {
+          const randomNum = Math.floor((Math.random() * 100) + 1);
+          randomRank = this.ranksSource[Math.floor(Math.random() * this.ranksSource.length)];
+
+          if (randomNum % 2 == 0) {
+            randomGivenNameElement = this.givenNamesSource[Math.floor(Math.random() * this.givenNamesSource.length)];
+            this.resultNames.push({ rank: randomRank, randomGivenNameElement })
+          } else {
+            randomsurnameElement = this.surnamesSource[Math.floor(Math.random() * this.surnamesSource.length)];
+            this.resultNames.push({ rank: randomRank, randomsurnameElement: randomsurnameElement })
+          }
+        }
+        // randomRank = this.ranksSource[Math.floor(Math.random() * this.ranksSource.length)];
+        // randomGivenNameElement = this.givenNamesSource[Math.floor(Math.random() * this.givenNamesSource.length)];
+        // randomsurnameElement = this.surnamesSource[Math.floor(Math.random() * this.surnamesSource.length)];
       }
       console.log(this.resultNames);
     })
